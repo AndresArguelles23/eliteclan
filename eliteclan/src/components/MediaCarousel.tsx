@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { ShowMedia } from '../data';
+import type { MediaAsset } from '../services/api';
 import '../App.css';
 
 type MediaCarouselProps = {
-  items: ShowMedia[];
+  items: MediaAsset[];
   autoPlay?: boolean;
   interval?: number;
 };
@@ -20,15 +20,19 @@ export const MediaCarousel = ({ items, autoPlay = true, interval = 6000 }: Media
     return () => clearInterval(timer);
   }, [autoPlay, safeItems.length, interval]);
 
+  if (!safeItems.length) {
+    return null;
+  }
+
   return (
     <div className="glass-panel" style={{ padding: '1rem', position: 'relative' }}>
       <div className="media-ratio">
         {safeItems[current].type === 'image' ? (
-          <img src={safeItems[current].src} alt={safeItems[current].alt} loading="lazy" />
+          <img src={safeItems[current].url} alt={safeItems[current].alt} loading="lazy" />
         ) : (
           <iframe
             title={safeItems[current].alt}
-            src={safeItems[current].src}
+            src={safeItems[current].url}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />

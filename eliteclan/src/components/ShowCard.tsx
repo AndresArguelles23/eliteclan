@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import type { Show } from '../data';
+import type { Show } from '../services/api';
 import '../App.css';
 
 export const ShowCard = ({ show }: { show: Show }) => {
@@ -15,11 +15,11 @@ export const ShowCard = ({ show }: { show: Show }) => {
   return (
     <article className="card" aria-labelledby={`${show.slug}-title`}>
       <div className="media-ratio" aria-hidden>
-        <img src={show.heroImage} alt={show.title} loading="lazy" />
+        <img src={show.heroImage ?? show.media[0]?.url ?? ''} alt={show.title} loading="lazy" />
       </div>
       <div style={{ marginTop: '1.5rem', display: 'grid', gap: '0.75rem' }}>
         <div className="badge-row" aria-label="Etiquetas del show">
-          {show.tags.map((tag) => (
+          {(show.tags ?? []).map((tag) => (
             <span key={tag} className="chip">
               {tag}
             </span>

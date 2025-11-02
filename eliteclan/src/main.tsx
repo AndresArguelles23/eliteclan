@@ -22,18 +22,22 @@ import ShowDetailPage from './pages/ShowDetail';
 import DiscographyPage from './pages/Discography';
 import ContactPage from './pages/Contact';
 import { ThemeProvider } from './styles/theme';
+import AdminApp from './admin/AdminApp';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<SiteLayout />}>
-      <Route index element={<HomePage />} />
-      <Route path="about" element={<AboutPage />} />
-      <Route path="services" element={<ServicesPage />} />
-      <Route path="shows" element={<ShowsPage />} />
-      <Route path="shows/:slug" element={<ShowDetailPage />} />
-      <Route path="discography" element={<DiscographyPage />} />
-      <Route path="contact" element={<ContactPage />} />
-    </Route>,
+    <>
+      <Route element={<SiteLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="services" element={<ServicesPage />} />
+        <Route path="shows" element={<ShowsPage />} />
+        <Route path="shows/:slug" element={<ShowDetailPage />} />
+        <Route path="discography" element={<DiscographyPage />} />
+        <Route path="contact" element={<ContactPage />} />
+      </Route>
+      <Route path="admin/*" element={<AdminApp />} />
+    </>
   ),
 );
 

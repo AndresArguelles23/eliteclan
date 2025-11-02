@@ -39,7 +39,7 @@ export default function ShowDetailPage() {
         </Link>
         <div className="hero-layout">
           <div className="card" style={{ display: 'grid', gap: '1rem' }}>
-            <span className="chip">{show.genre}</span>
+            <span className="chip">{show.genre ?? 'Show'}</span>
             <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>{show.title}</h1>
             <p style={{ color: 'var(--color-text-muted)' }}>{show.description}</p>
             <div style={{ display: 'grid', gap: '0.5rem', fontSize: '1rem' }}>
@@ -50,7 +50,7 @@ export default function ShowDetailPage() {
                 <strong>Ubicación:</strong> {show.venue} · {show.city}, {show.country}
               </span>
               <span>
-                <strong>Etiquetas:</strong> {show.tags.join(', ')}
+                <strong>Etiquetas:</strong> {(show.tags ?? []).join(', ')}
               </span>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
@@ -60,7 +60,7 @@ export default function ShowDetailPage() {
               </CTAButton>
             </div>
           </div>
-          <MediaCarousel items={show.media} />
+          <MediaCarousel items={show.media ?? []} />
         </div>
       </div>
     </section>
