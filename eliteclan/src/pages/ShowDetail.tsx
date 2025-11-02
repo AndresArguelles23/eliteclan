@@ -25,7 +25,7 @@ export default function ShowDetailPage() {
           <p style={{ color: 'var(--color-text-muted)' }}>
             El show que buscas no está disponible o fue archivado. Explora otros eventos disponibles.
           </p>
-          <CTAButton href="/shows">Ver todos los shows</CTAButton>
+          <CTAButton to="/shows">Ver todos los shows</CTAButton>
         </div>
       </section>
     );
@@ -54,7 +54,7 @@ export default function ShowDetailPage() {
               </span>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-              <CTAButton href="/contact">Solicitar booking</CTAButton>
+              <CTAButton to="/contact">Solicitar booking</CTAButton>
               <CTAButton href="https://wa.me/5215512345678" target="_blank" rel="noreferrer" variant="secondary">
                 Coordinar por WhatsApp
               </CTAButton>

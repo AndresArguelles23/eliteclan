@@ -24,7 +24,7 @@ export default function ServicesPage() {
                   <li key={feature}>· {feature}</li>
                 ))}
               </ul>
-              <CTAButton href={service.ctaHref} variant="secondary" style={{ justifySelf: 'start' }}>
+              <CTAButton to={service.ctaHref} variant="secondary" style={{ justifySelf: 'start' }}>
                 {service.ctaLabel}
               </CTAButton>
             </article>

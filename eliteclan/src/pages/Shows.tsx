@@ -33,7 +33,7 @@ export default function ShowsPage() {
                   </span>
                   <span>{new Date(featured.date).toLocaleString('es-ES', { dateStyle: 'medium', timeStyle: 'short' })}</span>
                 </div>
-                <CTAButton href={`/shows/${featured.slug}`}>Ver detalle</CTAButton>
+                <CTAButton to={`/shows/${featured.slug}`}>Ver detalle</CTAButton>
               </div>
               <MediaCarousel items={featured.media} />
             </div>

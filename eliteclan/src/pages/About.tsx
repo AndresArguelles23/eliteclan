@@ -35,8 +35,8 @@ export default function AboutPage() {
                 tecnología inmersiva para artistas que quieren transformar cada show en una experiencia inolvidable.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-                <CTAButton href="/contact">Agendar discovery call</CTAButton>
-                <CTAButton href="/discography" variant="secondary">
+                <CTAButton to="/contact">Agendar discovery call</CTAButton>
+                <CTAButton to="/discography" variant="secondary">
                   Explorar discografía
                 </CTAButton>
               </div>

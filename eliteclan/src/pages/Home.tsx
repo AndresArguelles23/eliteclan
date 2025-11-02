@@ -34,8 +34,8 @@ export default function HomePage() {
               colaboraciones con marcas para amplificar cada show.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-              <CTAButton href="/shows">Próximos shows</CTAButton>
-              <CTAButton href="/services" variant="secondary">
+              <CTAButton to="/shows">Próximos shows</CTAButton>
+              <CTAButton to="/services" variant="secondary">
                 Explorar servicios
               </CTAButton>
             </div>
