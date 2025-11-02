@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# EliteClan Experience Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio promocional para el colectivo EliteClan construido con React, Vite y TypeScript. El proyecto incluye enrutamiento con
+React Router, layout mobile-first, capa de diseño basada en tokens y componentes reutilizables para presentar shows, servicios
+y contenido multimedia.
 
-Currently, two official plugins are available:
+## Estructura de carpetas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/        # Componentes compartidos (botones, carruseles, formularios, grids)
+├── data/              # Datos seed y hooks para consumo futuro desde un CMS
+├── layouts/           # Layouts de alto nivel (SiteLayout con navegación y footer)
+├── pages/             # Páginas individuales conectadas al router
+├── styles/            # Definición del tema y proveedores de diseño
+├── App.css            # Utilidades globales, tokens derivados y componentes base
+├── index.css          # Reset, variables CSS y estilos globales
+└── main.tsx           # Punto de entrada, RouterProvider y ThemeProvider
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Diseño y tema
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Paleta**: base `#0F1115`, superficie `#111827`, acentos `#10B981` y `#22D3EE`, acento cálido `#F59E0B`.
+- **Tipografías**: Anton para display, Urbanist para headings y Inter para cuerpo (cargadas vía `@fontsource`).
+- **Tokens**: Espaciados responsivos, radios, sombras y glassmorphism definidos en `src/styles/theme.ts` y expuestos como
+  variables CSS.
+- **Accesibilidad**: Estados `:focus-visible` visibles, formulario con validaciones y componentes con soporte para teclado.
+- **Componentes base**: Botones CTA, tarjetas, chips, paneles de vidrio y utilidades de grid reutilizados en todo el sitio.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Características clave
+
+- Hero con video, carruseles multimedia y módulo Spotify embebido.
+- Páginas para Home, About, Services, Shows (con filtros), detalle de show (`/shows/:slug`), Discography y Contact.
+- Formularios de booking con validaciones y enlaces directos a WhatsApp/email.
+- Datos semilla para servicios, shows, discografía, testimonios y marcas aliadas listos para conectarse con un CMS.
+
+## Ejecutar el proyecto
+
+1. Instala dependencias (requiere [pnpm](https://pnpm.io/)).
+
+   ```bash
+   pnpm install
+   ```
+
+2. Inicia el servidor de desarrollo.
+
+   ```bash
+   pnpm dev
+   ```
+
+3. Abre [http://localhost:5173](http://localhost:5173) para visualizar la aplicación.
+
+4. Construye la versión de producción con:
+
+   ```bash
+   pnpm build
+   ```
+
+## Personalización futura
+
+- Reemplaza los datos en `src/data/` con integraciones a APIs o headless CMS utilizando los hooks existentes.
+- Añade nuevas páginas registrándolas en `src/pages/` e importándolas en el router de `src/main.tsx`.
+- Extiende el tema global ajustando tokens o variables en `src/styles/theme.ts` e `index.css`.
