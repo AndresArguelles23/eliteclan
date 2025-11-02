@@ -35,7 +35,7 @@ export default function ShowsPage() {
                 </div>
                 <CTAButton to={`/shows/${featured.slug}`}>Ver detalle</CTAButton>
               </div>
-              <MediaCarousel items={featured.media} />
+              <MediaCarousel items={featured.media ?? []} />
             </div>
           )}
         </div>

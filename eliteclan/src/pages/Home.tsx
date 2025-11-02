@@ -76,7 +76,7 @@ export default function HomePage() {
               <h2>{heroShow.title}</h2>
               <p>{heroShow.description}</p>
             </div>
-            <MediaCarousel items={heroShow.media} />
+            <MediaCarousel items={heroShow.media ?? []} />
           </div>
         </section>
       )}

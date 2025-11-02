@@ -1,8 +1,8 @@
-import type { Release } from '../data';
+import type { DiscographyItem } from '../services/api';
 import '../App.css';
 
 type SpotifyModuleProps = {
-  release: Release;
+  release: DiscographyItem;
 };
 
 export const SpotifyModule = ({ release }: SpotifyModuleProps) => {
